@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { TiThMenu } from 'react-icons/ti'
 import { setLoginSlice } from '../features/login/loginSlice'
-import Sidebar from './sidebar'
+import Sidebar from './Sidebar'
 
 const Header = ({ pinPoint }) => {
   const [isSideBar, setIsSideBar] = useState(false)
