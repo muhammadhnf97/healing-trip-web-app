@@ -19,8 +19,6 @@ function App() {
     setBatasAkhir(prev=>prev >= country.length ? prev : prev+1 )
     setBatasAwal(prev=>prev >= country.length - 3 ? prev : prev+1 )
   }
-  
-  console.log(batasAwal, batasAkhir, country.length)
 
   const handleClickBefore = () => {
     setBatasAwal(prev=>prev <= 0 ? prev : prev-1 )

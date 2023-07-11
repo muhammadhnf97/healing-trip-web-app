@@ -70,7 +70,6 @@ const Paket = () => {
             return
         }
         if(filterSearch.people !== null && filterSearch.destination === null) {
-            console.log(paket)
             setPaket(pkg=>{
                 return pkg.filter(pkt=>pkt.people >= filterSearch.people)
             })

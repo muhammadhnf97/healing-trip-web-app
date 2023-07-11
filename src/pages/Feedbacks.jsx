@@ -15,11 +15,8 @@ const Feedbacks = () => {
         })
     }
 
-    console.log(feedbackInput
-        )
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('punten')
     } 
   return (
     <>

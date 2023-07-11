@@ -51,7 +51,6 @@ const Login = () => {
                 token: data.data.token
             }))
 
-            console.log(data)
             
             navigate('/')
 
