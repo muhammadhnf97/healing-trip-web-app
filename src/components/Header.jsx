@@ -12,7 +12,7 @@ const Header = ({ pinPoint }) => {
   const dispatch = useDispatch()
 
   const handleClickLogout = async() => {
-    const response = await fetch('http://127.0.0.1:8000/api/auth/logout',
+    const response = await fetch('http://servicesimager.my.id/api/auth/logout',
       {
         method: 'GET',
         headers: {
