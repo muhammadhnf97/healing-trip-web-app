@@ -28,26 +28,26 @@ function App() {
   return (
     <>
     <Header pinPoint={'home'} />
-    <div className='space-y-7 py-28 bg-white px-10'>
+    <div className='space-y-7 pt-28 bg-white md:px-10'>
       <Main />
       <div className='px-10'>
         <ExploreNow />
       </div>
-      <div className='px-10 bg-[#F5032E] rounded-lg py-5 h-fit max-w-7xl mx-auto'>
+      <div className='px-2 md:px-10 bg-[#F5032E] md:rounded-lg py-5 h-fit max-w-7xl mx-auto'>
         <h2 className='font-bold text-3xl'>Favorite Country</h2>
-        <div className='grid grid-cols-3 justify-center w-full py-5 relative'>
-          <div className='absolute -right-10 top-1/2 group'>
-            <button className='w-16 h-16 rounded-full shadow-md bg-white flex items-center justify-center duration-150 group-hover:translate-x-5' onClick={handleClickNext}><AiOutlineArrowRight className='w-7 h-7' /></button>
+        <div className='flex flex-col md:grid md:grid-cols-3 justify-center md:w-full py-5 relative gap-10'>
+          <div className='absolute -right-10 z-10 top-1/2 group'>
+            <button className='w-16 h-16 rounded-full shadow-md bg-white flex items-center justify-center duration-150 group-hover:-translate-x-5 md:group-hover:translate-x-5' onClick={handleClickNext}><AiOutlineArrowRight className='w-7 h-7' /></button>
           </div>
-          <div className='absolute -left-10 top-1/2 z-10 group'>
-            <button className='w-16 h-16 rounded-full shadow-md bg-white flex items-center justify-center duration-150 group-hover:-translate-x-5' onClick={handleClickBefore}><AiOutlineArrowRight className='w-7 h-7 rotate-180' /></button>
+          <div className='absolute  -left-10 top-1/2 z-20 group'>
+            <button className='w-16 h-16 rounded-full shadow-md bg-white flex items-center justify-center duration-150 group-hover:translate-x-5 md:group-hover:-translate-x-5' onClick={handleClickBefore}><AiOutlineArrowRight className='w-7 h-7 rotate-180' /></button>
           </div>
           {
             country.map(ctr=>(
-              <div key={ctr.id} className='w-96 relative flex-1 h-52 hover:h-fit group border'>
-                <img src={ctr.image} alt='pp' loading='lazy' className='w-full h-52 object-cover object-center' />
+              <div key={ctr.id} className='md:w-96 relative flex-1 h-52 hover:h-fit group border'>
+                <img src={ctr.image} alt='pp' loading='lazy' className='w-full md:w-full h-52 object-cover object-center' />
                   <p className='absolute top-40 text-2xl font-bold text-white left-7 drop-shadow-lg'>{ctr.name}</p>
-                <div className='bg-black text-white bg-opacity-70 scale-0 duration-200 origin-top p-5 group-hover:scale-100  absolute text-xs text-start'>
+                <div className='z-10 bg-black text-white bg-opacity-70 scale-0 duration-200 origin-top p-5 group-hover:scale-100  absolute text-xs text-start'>
                   <p>{ctr.description}</p>
                 </div>
               </div>

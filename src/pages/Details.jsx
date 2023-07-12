@@ -34,6 +34,8 @@ const Details = () => {
       setTheImage(image)
     }
 
+    console.log(detail)
+
   return (
     <>
       {
@@ -48,7 +50,7 @@ const Details = () => {
             <div className='w-full p-1 space-y-2'>
               <p className='text-xl font-bold md:text-6xl'>{detail?.name}</p>
               <p className='md:text-xl'>{detail?.person} <span className='text-red-500'>Orang</span> {detail?.days} <span className='text-red-500'>Hari</span></p>
-              <p className='md:text-3xl'>{detail?.price.toLocaleString("id-ID", {style: 'currency', currency: 'IDR'})}</p>
+              <p className='md:text-3xl'>{detail?.price?.toLocaleString("id-ID", {style: 'currency', currency: 'IDR'})}</p>
             </div>
             <div className='space-y-2 hidden md:block md:py-5'>
               <button className='w-full py-3 bg-yellow-400 hover:bg-yellow-500 rounded-lg font-semibold text-lg flex justify-center items-center gap-1 md:w-full' onClick={handleClickShowActivity}>See our rundown <FaAngleRight className='w-6 h-6' /></button>
@@ -57,11 +59,10 @@ const Details = () => {
           </div>
         </section>
 
-        <section className={`z-10 bg-black bg-opacity-60 w-screen h-screen top-0 fixed flex items-center justify-center ${isDetailActivity ? 'scale-100 visible' : ' invisible scale-0'}`}>
-          <button className='w-screen h-screen fixed top-0 -z-10' onClick={handleClickShowActivity}>
-            <RxCross1 className="w-7 h-7 absolute top-5 right-5 text-white" />
-          </button>
-          <div className={`p-5 bg-white shadow-md space-y-3 duration-200 ${isDetailActivity ? 'scale-100 visible' : ' invisible scale-0'}`}>
+        <section className={`z-10 -top-10 left-0 bg-black bg-opacity-60 w-screen h-screen overflow-auto fixed flex items-center justify-center ${isDetailActivity ? 'scale-100 visible' : ' invisible scale-0'}`}>
+          <button className='w-screen h-screen fixed top-0 -z-10' onClick={handleClickShowActivity}></button>
+          <div className={`overflow-auto h-screen relative min-w-[200px] p-5 bg-white shadow-md space-y-3 duration-200 ${isDetailActivity ? 'scale-100 visible' : ' invisible scale-0'}`}>
+            <button className='fixed top-0 right-0 text-black ' onClick={handleClickShowActivity}><RxCross1 className="w-7 h-7 absolute top-5 right-5" /></button>
             <p className='text-xl font-bold text-[#F5032E]'>Kegiatan</p>
             <ul className='list-disc px-5 space-y-2'>
               {detail?.itinerary?.map(data=>(
@@ -96,7 +97,7 @@ const Details = () => {
           <button className='w-full py-5 bg-green-500 rounded-lg font-semibold text-lg'>Booking Now !</button>
         </section>
 
-        <section className={`fixed bg-black w-screen h-screen top-0 bg-opacity-80 duration-100 flex items-center justify-center ${isShowImage ? 'scale-100 visible' : 'scale-0 invisible'}  `}>
+        <section className={`left-0 z-10 fixed bg-black w-screen h-screen -top-10 bg-opacity-80 duration-100 flex items-center justify-center ${isShowImage ? 'scale-100 visible' : 'scale-0 invisible'}  `}>
               <button className='w-screen h-screen absolute cursor-default' onClick={handleClickShowImage}></button>
               <img src={theImage} alt='img' className='w-full h-fit md:w-[55rem] md:h-[35rem] object-cover object-center' />
         </section>
