@@ -41,8 +41,8 @@ const Header = ({ pinPoint }) => {
   }
 
   return (
-  <>    
-    <nav className='h-[92px] w-full px-5 md:px-0 fixed bg-white z-10'>
+  <div className='w-full'>    
+    <nav className='px-5 h-[92px] w-full md:px-0  bg-white z-10'>
       <div className='h-full max-w-[1200px] mx-auto border-b border-[#CFCFCF] flex items-center justify-between font-poppins'>
         <h1 className='text-[#F5032E] text-[36px] font-bold'>Healing.</h1>
         <div className='hidden md:flex md:items-center md:justify-center md:gap-5 md:text-[18px] md:font-semibold'>
@@ -72,14 +72,14 @@ const Header = ({ pinPoint }) => {
         </div>
         <button className='w-7 h-7 md:hidden' onClick={handleClickIsSideBar}><TiThMenu className='w-7 h-7' /></button>
       </div>
+  </nav>
       <Sidebar 
         isSideBar={isSideBar} 
         handleClickIsSideBar={handleClickIsSideBar}
         handleClickLogout={handleClickLogout}
         loginData={loginData}
         pinPoint={pinPoint} />
-  </nav>
-</>
+</div>
     
   )
 }
