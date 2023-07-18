@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchPaket } from '../features/paket/paketSlice'
 import { fetchLocation } from '../features/location/locationSlice'
 import { getdata } from '../lib/getdata'
+import Footer from '../components/Footer'
 
 const Paket = () => {
     const [filterSearch, setFilterSearch] = useState({ people: null, destination: null })
@@ -88,8 +89,8 @@ const Paket = () => {
   return (
     <>
     <Header pinPoint={'paket'} />
-    <div className='space-y-7 pt-28 p-3 bg-white'>
     { paketData.isLoading && <Loading /> }
+    <div className='space-y-7 pt-28 p-3 bg-white'>
         <div className='border p-2 rounded-lg space-y-2 flex flex-col bg-gray-400 md:w-[45rem] md:mx-auto md:flex-row md:space-y-0 gap-2'>
             <div className='w-full flex gap-2  items-center justify-center'>
                 <select name='people' value={filterSearch.people} className='border rounded-lg px-2 py-3 w-full' onChange={(e)=>handleChangeFilter(e)}>
@@ -140,6 +141,7 @@ const Paket = () => {
             }
         </div>
     </div>
+    <Footer />
     </>
   )
 }

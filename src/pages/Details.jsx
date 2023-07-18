@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import { RxCross1 } from 'react-icons/rx'
 import { FaAngleRight } from 'react-icons/fa'
 import { getDetail } from '../lib/getdata'
+import Footer from '../components/Footer'
 
 const Details = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -102,6 +103,7 @@ const Details = () => {
               <img src={theImage} alt='img' className='w-full h-fit md:w-[55rem] md:h-[35rem] object-cover object-center' />
         </section>
       </div>
+      <Footer />
     </>
   )
 }

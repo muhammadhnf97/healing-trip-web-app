@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchPaket } from '../features/paket/paketSlice'
 import { fetchLocation } from '../features/location/locationSlice'
 import { Link, useParams } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 const Search = () => {
 
@@ -76,6 +77,7 @@ const Search = () => {
             }
         </div>
     </div>
+    <Footer />
     </>
   )
 }

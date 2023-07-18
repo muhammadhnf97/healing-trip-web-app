@@ -7,15 +7,23 @@ import { getDataDestination } from '../lib/getdata'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import SecondCard from '../components/SecondCard'
 import Footer from '../components/Footer'
+import Loading from '../components/Loading'
 
 function App() {
   const [country, setCountry] = useState([])
   const [batasAwal, setBatasAwal] = useState(0)
   const [batasAkhir, setBatasAkhir] = useState(3)
+  const [isLoading, setIsLoading] = useState(true)
   
   useEffect(()=>{
     getDataDestination().then(data=>setCountry(data))
   }, [])
+
+  useEffect(()=>{
+    if(country.length > 0) { 
+      setIsLoading(false)
+    }
+  }, [country])
 
   const handleClickNext = () => {
     setBatasAkhir(prev=>prev >= country.length ? prev : prev+1 )
@@ -28,7 +36,12 @@ function App() {
   }
   
   return (
-    <div className='w-screen pb-76'>
+    <>
+    {
+      isLoading &&
+      <Loading />
+    }
+    <div className=' pb-76'>
     <Header pinPoint={'home'} />
     <div className='space-y-7 pt-28 bg-white md:px-10 pb-20'>
       <Main />
@@ -48,8 +61,9 @@ function App() {
         </div>
       </div>
     </div>
-    <Footer />
     </div>
+    <Footer />
+    </>
   )
 }
 
