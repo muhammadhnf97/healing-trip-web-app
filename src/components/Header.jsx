@@ -41,7 +41,7 @@ const Header = ({ pinPoint }) => {
   }
 
   return (
-  <div className='w-full'>    
+  <div className='w-full fixed z-40'>    
     <nav className='px-5 h-[92px] w-full md:px-0  bg-white z-10'>
       <div className='h-full max-w-[1200px] mx-auto border-b border-[#CFCFCF] flex items-center justify-between font-poppins'>
         <h1 className='text-[#F5032E] text-[36px] font-bold'>Healing.</h1>
@@ -49,8 +49,6 @@ const Header = ({ pinPoint }) => {
             <Link to='/'><p className={`${pinPoint === 'home' ? 'text-red-500' : 'duration-500 hover:bg-black hover:bg-opacity-20 rounded-full px-2'}`}>Home</p></Link>
             <Link to='/paket'><p className={`${pinPoint === 'paket' ? 'text-red-500' : 'duration-500 hover:bg-black hover:bg-opacity-20 rounded-full px-2'}`}>Paket</p></Link>
             <Link to='/feedbacks'><p className={`${pinPoint === 'feedbacks' ? 'text-red-500' : 'duration-500 hover:bg-black hover:bg-opacity-20 rounded-full px-2'}`}>Feedbacks</p></Link>
-            <Link to='/blog'><p className={`${pinPoint === 'blog' ? 'text-red-500' : 'duration-500 hover:bg-black hover:bg-opacity-20 rounded-full px-2'}`}>Blog</p></Link>
-            <Link to='/blog'><p className={`${pinPoint === 'contact' ? 'text-red-500' : 'duration-500 hover:bg-black hover:bg-opacity-20 rounded-full px-2'}`}>Contact</p></Link>
         </div>
         <div className='hidden md:flex gap-3 items-center'>
           {

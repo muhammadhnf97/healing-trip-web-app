@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const Feedbacks = () => {
     const [feedbackInput, setFeedbacks] = useState({ nama : null, email : null, consumenFeedbacks: null })
