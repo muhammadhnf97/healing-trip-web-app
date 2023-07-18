@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { setLoginSlice } from '../features/login/loginSlice'
 import { useDispatch } from 'react-redux'
 import Loading from '../components/Loading'
+import Notification from '../components/Notification'
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -16,11 +17,12 @@ const Login = () => {
 
     const [isShowPassword, setIsShowPassword] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const [isNotif, setIsNotif] = useState(false)
  
     const handleSubmitLogin = async() => {
         setIsLoading(true)
         try {
-            const reponse = await fetch('http://127.0.0.1:8000/api/auth/login',{
+            const reponse = await fetch('http://servicesimager.my.id/api/auth/login',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -56,6 +58,12 @@ const Login = () => {
 
         } catch (error) {
             console.log('Error Login : ',error)
+            setIsLoading(false)
+            setIsNotif(true)
+            setUser({
+                email: '',
+                password: ''
+            })
         }
 
     }
@@ -74,11 +82,19 @@ const Login = () => {
     const handleClickShowPassword = () => {
         setIsShowPassword(prev=>!prev)
     }
+
+    const handleClickNotif = () => {
+        setIsNotif(prev=>!prev)
+    }
   return (
     <>
     {
         isLoading && 
         <Loading />
+    }
+    {
+        isNotif &&
+        <Notification notif={'Login'} handleClickNotif={handleClickNotif} />
     }
     <img src='/images/bg-login.jpg' className='w-screen h-screen object-cover fixed object-bottom bottom-0 -z-10' />
     <div className='w-screen h-screen flex flex-col items-center justify-center font-poppins space-y-5'>
